@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Показать Telegram ID</title>
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+<div id="tg-id">Загрузка...</div>
+
+<script>
+  // Проверяем, доступен ли объект initDataUnsafe
+  if (window.Telegram.WebApp.initDataUnsafe) {
+    // Получаем Telegram ID из initDataUnsafe
+    var tgId = window.Telegram.WebApp.initDataUnsafe.user.id;
+    // Отображаем ID на сайте
+    document.getElementById('tg-id').textContent = 'Ваш Telegram ID: ' + tgId;
+  } else {
+    document.getElementById('tg-id').textContent = 'Ошибка: initDataUnsafe не доступен.';
+  }
+</script>
+</body>
+</html>
